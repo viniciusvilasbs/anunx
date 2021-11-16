@@ -18,9 +18,6 @@ import TemplateDefult from '../src/templates/Default'
 
 
 const useStyles = makeStyles((theme) => ({
-    searchContainer:{
-        padding: theme.spacing(8, 10, 6),
-    },
     searchBox:{
         display: 'flex',
         justifyContent: 'center',
@@ -38,7 +35,7 @@ const Home = () => {
 
     return (
         <TemplateDefult>
-            <Container maxWidth="md" className={classes.searchContainer}>
+            <Container maxWidth="md">
                 <Typography component="h1" variant="h3" align="center" color="primary">
                     O que deseja encontrar?
                 </Typography>
