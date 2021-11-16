@@ -69,10 +69,13 @@ export default function ButtonAppBar() {
                         open={openUserMenu}
                         onClose={() => setAnchorUserMenu(null)}
                         anchorOrigin={{
-                            vertical:'top',
+                            vertical:'bottom',
                             horizontal:'right',
                         }}
                     >
+                        <Link href="/" passHref>
+                            <MenuItem>Home</MenuItem>
+                        </Link>
                         <Link href="/user/dashboard" passHref>
                             <MenuItem>Meus anúncios</MenuItem>
                         </Link>
