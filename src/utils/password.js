@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt'
+import bcrypt, { hash } from 'bcrypt'
 
 const crypto = async pwd => {
 
@@ -9,6 +9,13 @@ const crypto = async pwd => {
     return password
 }
 
+const compare = (pwd, hash) => {
+    const result = bcrypt.compare(pwd, hash)
+
+    return result
+}
+
 export {
     crypto,
+    compare,
 }
