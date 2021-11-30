@@ -1,6 +1,6 @@
-import UsersModel from '../models/users'
-import dbConnect from '../utils/dbConnect'
-import { compare } from '../utils/password'
+import UsersModel from '../../models/users'
+import dbConnect from '../../utils/dbConnect'
+import { compare } from '../../utils/password'
 
 const post = async (req, res) => {
     const {
