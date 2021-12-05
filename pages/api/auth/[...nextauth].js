@@ -1,6 +1,6 @@
+import axios from "axios"
 import NextAuth from "next-auth"
 import Providers from "next-auth/providers"
-import axios from "axios"
 
 export default NextAuth({
     
@@ -32,7 +32,22 @@ export default NextAuth({
     },
 
     jwt: {
-        secret: process.env.JWT_TOKEN
+        secret: process.env.JWT_TOKEN,
+    },
+
+    callbacks: {
+        async jwt (token, user) {
+            if (user){
+                token.uid = user.id;
+            }
+
+            return Promise.resolve(token)
+        },
+
+        async session(session, user) {
+            session.userId = user.uid
+            return session
+        }
     },
 
     database: process.env.MONGODB_URI,

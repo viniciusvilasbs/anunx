@@ -8,19 +8,19 @@ const filesSchema = new mongoose.Schema({
 const schema = new mongoose.Schema({
     title:{
         type: String,
-        required: [true, 'O campo "título do anúncio" é obrigatório.']
+        required: [true, 'O campo "título do anúncio" é obrigatório.'],
     },
     category:{
         type: String,
-        required: [true, 'O campo "categoria" é obrigatório.']
+        required: [true, 'O campo "categoria" é obrigatório.'],
     },
     description:{
         type: String,
-        required: [true, 'O campo "descrição" é obrigatório.']
+        required: [true, 'O campo "descrição" é obrigatório.'],
     },
     price:{
         type: Number,
-        required: [true, 'O campo "preço" é obrigatório.']
+        required: [true, 'O campo "preço" é obrigatório.'],
     },
     user:{
         id: String,
@@ -35,4 +35,4 @@ const schema = new mongoose.Schema({
     },
 })
 
-export default mongoose.models.users || mongoose.model('products', schema)
+export default mongoose.models.products || mongoose.model('products', schema)

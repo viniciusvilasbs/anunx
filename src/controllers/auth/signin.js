@@ -20,7 +20,7 @@ const post = async (req, res) => {
 
     if (passIsCorrect) {
         return res.status(200).json({
-            _id: user.id,
+            _id: user._id,
             name: user.name,
             email: user.email,
         })
@@ -32,3 +32,4 @@ const post = async (req, res) => {
 export {
     post,
 }
+

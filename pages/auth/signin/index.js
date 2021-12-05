@@ -22,6 +22,7 @@ import { initialValues, validationSchema } from './formValues'
 import TemplateDefault  from '../../../src/templates/Default'
 import useToasty from '../../../src/contexts/Toasty'
 import useStyles from './styles'
+import { apiResolver } from 'next/dist/server/api-utils'
 
 const Signin = ({ APP_URL }) => {
 
@@ -32,7 +33,6 @@ const Signin = ({ APP_URL }) => {
     const {setToasty} = useToasty()
 
     const [ session ] = useSession()
-    console.log(session)
 
     const handleGoogleLogin = () => {
         signIn('google', {
@@ -40,7 +40,7 @@ const Signin = ({ APP_URL }) => {
         })
     }
 
-    const handleFormSubmit = async values =>{
+    const handleFormSubmit = async values => {
         signIn('credentials', {
             email: values.email,
             password: values.password,
@@ -162,10 +162,22 @@ const Signin = ({ APP_URL }) => {
     )
 }
 
-Signin.getInitialProps = async function(){
-    return{
+/* 
+Signin.getInitialProps = async function() {
+
+    return {
         APP_URL: process.env.APP_URL
+   }
+}
+*/
+
+export const getServerSideProps = (Signin) => {
+    return{
+        props: {
+            APP_URL: process.env.APP_URL
+        } 
     }
 }
+
 
 export default Signin
