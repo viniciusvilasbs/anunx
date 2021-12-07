@@ -22,7 +22,6 @@ import { initialValues, validationSchema } from './formValues'
 import TemplateDefault  from '../../../src/templates/Default'
 import useToasty from '../../../src/contexts/Toasty'
 import useStyles from './styles'
-import { apiResolver } from 'next/dist/server/api-utils'
 
 const Signin = ({ APP_URL }) => {
 
@@ -171,13 +170,21 @@ Signin.getInitialProps = async function() {
 }
 */
 
-export const getServerSideProps = (Signin) => {
-    return{
+export const getServerSideProps = () => ({
+    props: {
+        APP_URL: process.env.APP_URL,
+    }, 
+})
+
+/*
+export const getServerSideProps = () => {
+    return {
         props: {
             APP_URL: process.env.APP_URL
-        } 
+        }
     }
 }
+*/
 
 
 export default Signin

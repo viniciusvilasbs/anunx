@@ -265,10 +265,8 @@ const Publish = ({ userId, image }) => {
 
 Publish.requireAuth = true
 
-export async function getServerSideProps({ req }) {
-    const { userId, user } = await getSession ({ req })
-
-    console.log(userId, user)
+export const getServerSideProps = async ({ req }) => {
+    const { userId, user } = await getSession ({ req });
 
     return {
         props: {
@@ -279,4 +277,3 @@ export async function getServerSideProps({ req }) {
 }
 
 export default Publish
-
