@@ -14,8 +14,8 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>Anunx</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+          <title>AnunX</title>
+          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <Provider session={pageProps.session}>
         <ThemeProvider theme={theme}>
