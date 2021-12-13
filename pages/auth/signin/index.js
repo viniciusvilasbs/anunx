@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Formik } from 'formik'
 import axios from 'axios'
-import { useRouter } from 'next/dist/client/router'
+import { useRouter } from 'next/router'
 import { signIn, useSession } from 'next-auth/client'
 
 import {
@@ -23,7 +23,7 @@ import TemplateDefault  from '../../../src/templates/Default'
 import useToasty from '../../../src/contexts/Toasty'
 import useStyles from './styles'
 
-const Signin = ({ APP_URL }) => {
+const SignIn = ({ APP_URL }) => {
 
     const classes = useStyles()
 
@@ -39,7 +39,7 @@ const Signin = ({ APP_URL }) => {
         })
     }
 
-    const handleFormSubmit = async values => {
+    const handleFormSubmit = async (values) => {
         signIn('credentials', {
             email: values.email,
             password: values.password,
@@ -97,6 +97,7 @@ const Signin = ({ APP_URL }) => {
                             }) => {
                                 return(
                                     <form onSubmit={handleSubmit}>
+                                        <FormControl fullWidth error={errors.email && touched.email} className={classes.FormControl}>
                                         {
                                             router.query.i === '1'
                                             ? (
@@ -107,7 +108,6 @@ const Signin = ({ APP_URL }) => {
                                             : null
                                         }
 
-                                        <FormControl fullWidth error={errors.email && touched.email} className={classes.FormControl}>
                                             <InputLabel>E-mail</InputLabel>
                                             <Input
                                                 name="email"
@@ -170,10 +170,10 @@ Signin.getInitialProps = async function() {
 }
 */
 
-export const getServerSideProps = () => ({
+export const getServerSideProps = async () => ({
     props: {
-        APP_URL: process.env.APP_URL,
-    }, 
+        APP_URL: process.env.APP_URL
+    }
 })
 
 /*
@@ -187,4 +187,4 @@ export const getServerSideProps = () => {
 */
 
 
-export default Signin
+export default SignIn

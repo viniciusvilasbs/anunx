@@ -9,11 +9,6 @@ const get = async (req, res) => {
 }
 
 const post = async (req, res) => {
-    // pegar dados que vem no req
-    // conectar no banco 
-    // criptografar senhas
-    // salvar os dados
-    // responder sucesso
 
     const {
         name,

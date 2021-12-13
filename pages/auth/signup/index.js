@@ -1,6 +1,6 @@
 import { Formik } from 'formik'
 import axios from 'axios'
-import { useRouter } from 'next/dist/client/router'
+import { useRouter } from 'next/router'
 
 import {
     Box,
@@ -19,7 +19,7 @@ import TemplateDefault  from '../../../src/templates/Default'
 import useToasty from '../../../src/contexts/Toasty'
 import useStyles from './styles'
 
-const Signup = () => {
+const SignUp = () => {
 
     const classes = useStyles()
 
@@ -27,7 +27,7 @@ const Signup = () => {
 
     const {setToasty} = useToasty()
 
-    const handleFormSubmit = async values =>{
+    const handleFormSubmit = async (values) =>{
         const response = await axios.post('/api/users', values)
 
         if (response.data.success){
@@ -150,4 +150,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default SignUp
